@@ -161,6 +161,11 @@ class DecisionTree:
             node["type"] = "terminal"
             node["class"] = Counter(sub_y).most_common(1)[0][0]
             return
+        
+        if split.sum() == 0:
+            node["type"] = "terminal"
+            node["class"] = Counter(sub_y).most_common(1)[0][0]
+            return
 
         node["type"] = "nonterminal"
         node["feature_split"] = feature_best
